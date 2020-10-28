@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+        <style type="text/css">
+
+            body {
+                height: 100vh;
+                margin: 0;
+            }
+
+            html {
+              height: 100%;
+              margin: 0;
+            }
+
+            .bg {
+              /* The image used */
+              background-image: url("media/images/sky.gif");
+
+              /* Full height */
+              height: 100%;
+
+              /* Center and scale the image nicely */
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+
+
+            /* Centered text */
+            .centered {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+
+            .sticky {
+              position: fixed;
+              top: 0;
+              width: 100%;
+              z-index: 2;
+            }
+
+            /* Three image containers (use 25% for four, and 50% for two, etc) */
+            .column {
+              float: left;
+              width: 33.33%;
+              padding: 5px;
+            }
+
+            /* Clear floats after image containers */
+            .row::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+
+            .marquee {
+                width: 100%;
+              margin: 0 auto;
+              white-space: nowrap;
+              overflow: hidden;
+              box-sizing: border-box;
+            }
+
+            .marquee span {
+              display: inline-block;
+              padding-left: 100%;
+              /* show the marquee just outside the paragraph */
+              will-change: transform;
+              animation: marquee 15s linear infinite;
+            }
+
+            .marquee span:hover {
+              animation-play-state: paused
+            }
+
+
+            @keyframes marquee {
+              0% { transform: translate(0, 0); }
+              100% { transform: translate(-100%, 0); }
+            }
+
+
+            /* Respect user preferences about animations */
+
+            @media (prefers-reduced-motion: reduce) {
+              .marquee {
+                white-space: normal
+              }
+              .marquee span {
+                animation-iteration-count: 1;
+                animation-duration: 0.01;
+                /* instead of animation: none, so an animationend event is
+                 * still available, if previously attached.
+                 */
+                padding-left: 0;
+              }
+            }
+
+            @font-face {
+              font-family: crafty_beach;
+              src: url('../media/fonts/Crafty_Beach.otf');
+            }
+
+            @font-face {
+              font-family: sf_bold;
+              src: url('../media/fonts/SF-Pro-Text-Bold.otf');
+            }
+
+            @font-face {
+              font-family: sf_reg;
+              src: url('../media/fonts/SF-Pro-Text-Regular.otf');
+            }
+
+            @font-face {
+              font-family: Gravity;
+              src: url('../media/fonts/Gravity-Regular.otf');
+            }
+
+        </style>
+
+        <title>Gifify - A video-to-gif converter</title>
+    </head>
+
+    <body>
+
+        <!-- Generate Navbar -->
+        <div class="sticky">
+            <nav class="navbar navbar-dark navbar-expand-md bg-dark">
+                <div style="text-align: right; font-family: Gravity">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/about/">About</a>
+                    </li>
+                  </ul>
+                </div>
+            </nav>
+        </div>
+
+        {% block content %}
+
+        {% endblock %}
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+        <div id="footer" class="fixed-bottom w-100" style="background-color: black; color: white; font-size:15px;">
+            <div class="marquee">
+                <span>
+                    © 2020, All rights reserved. Made by: Brian Sukhnandan ツ
+                </span>
+            </div>
+        </div>
+
+    </body>
+
+</html>

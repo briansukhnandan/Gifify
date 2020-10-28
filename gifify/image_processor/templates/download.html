@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static%}
+{% block content %}
+
+<div style="color: #e3cdbc; background-color: #171717; height:100vh;">
+    <div style="padding-top: 85px; font-size: 30px; text-align: center">
+        <p>Click on the button below to download your gif!</p>
+    </div>
+
+    <div style="text-align: center;">
+        <img src="../media/documents/edited.gif" width="330" height="220">
+        <br>
+        <div style="padding-top:15px;">
+            <a href="{% static '../media/documents/edited.gif' %}" class="btn btn-secondary px-4 py-2 btn-sm">Download</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

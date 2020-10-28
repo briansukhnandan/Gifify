@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="bg">
+        <div style="color: white;">
+            <div class="centered">
+                <center><div style="font-size: 78px; font-family: crafty_beach;">GIFIFY</div>
+
+                <div style="font-size: 35px;">A pain-free Video-to-Gif converter!</div></center>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="color: #e3cdbc; background-color: #171717">
+
+        <!-- Upload form. Note enctype attribute! -->
+        <form action="{% url 'ui-main-view' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="container" style="padding-top: 18px;">
+
+                <div class="row justify-content-md-center">
+
+                   <div class="col-sm-4">
+                       <img src="../media/images/gif_showcase1.gif" alt="inn_logo" width="300" height="200" />
+                   </div>
+
+                   <div class="col-sm-4">
+                       <img src="../media/images/gif_showcase2.gif" alt="ccs_logo" width="300" height="200" />
+                   </div>
+
+                   <div class="col-sm-4">
+                       <img src="../media/images/gif_showcase3.gif" alt="inn_logo" width="300" height="200" />
+                   </div>
+
+                </div>
+
+            </div>
+
+            <div style="padding-top: 30px; font-size: 30px; font-family: Gravity;">
+                <center>
+                    <p>
+                    Upload your video, and specify the starting/ending <br>
+                    timestamps that you would like to convert to a gif:
+                                </p>
+                </center>
+            </div>
+
+            {{ message }}
+            <p>{{ form.non_field_errors }}</p>
+
+            <br>
+
+            <div style="text-align: center; font-family: Gravity;">
+                <p>
+                    Formats supported: .mp4, .avi, .wmv
+                </p>
+
+                <p>
+                    {{ form.docfile.errors }}
+                    {{ form.docfile }}
+                </p>
+            </div>
+
+            <div class="container-fluid" style="padding-top: 18px; font-family: Gravity;">
+                <div class="row justify-content-md-center">
+                    <div class="col-md"></div>
+                    <div class="col-md">
+                        <div style="text-align: center;">
+                            <p>
+                                {{ form.starting_timestamp.help_text }}
+                                <br>
+                                {{ form.starting_timestamp }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs"></div>
+                    <div class="col-md">
+                        <div style="text-align: center;">
+                            <p>
+                                {{ form.ending_timestamp.help_text }}
+                                <br>
+                                {{ form.ending_timestamp }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md"></div>
+                </div>
+            </div>
+
+            <br>
+
+            <div style="padding-top: 25px; font-size: 30px; font-family: Gravity; text-align: center;">
+                <p>Now you can choose from some optional effects:</p>
+            </div>
+
+            <div class="container-fluid" style="padding-top: 8px; font-family: Gravity;">
+                <div class="row justify-content-md-center">
+                    <div class="col-md"></div>
+                    <div class="col-sm">
+                        <div style="text-align: center; padding-bottom:20px;">
+
+                            <p>
+                                {{ form.grayscale_option.help_text }}
+                                {{ form.grayscale_option }}
+                            </p>
+
+                        </div>
+
+                        <div style="text-align: center; padding-bottom:20px;">
+
+                            <p>
+                                {{ form.flipX_option.help_text }}
+                                {{ form.flipX_option }}
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <div class="col-xs"></div>
+                    <div class="col-sm">
+                        <div style="text-align: center;">
+
+                            <p>
+                                {{ form.pencil_sketched_option.help_text }} <br>
+                                (Text will be disregarded)
+                                {{ form.pencil_sketched_option }}
+                            </p>
+
+                        </div>
+
+                        <div style="text-align: center; padding-bottom:20px;">
+
+                            <p>
+                                {{ form.flipY_option.help_text }}
+                                {{ form.flipY_option }}
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md"></div>
+                </div>
+            </div>
+
+            <div style="padding-top: 5px; padding-bottom: 20px; text-align: center; font-family: Gravity;">
+                {{ form.optional_text.label_tag }}
+                <p>{{ form.optional_text }}</p>
+            </div>
+
+            <div style="text-align: center; padding-bottom:60px; font-family: Gravity;">
+                <input type="submit" value="Upload"/>
+            </div>
+
+        </form>
+
+    </div>
+
+{% endblock %}
