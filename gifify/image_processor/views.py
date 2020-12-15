@@ -74,6 +74,9 @@ def ui_main_view(request):
                     STARTING_TIMESTAMP = ENDING_TIMESTAMP
                     ENDING_TIMESTAMP = tmp
 
+                if abs(int(ENDING_TIMESTAMP) - int(STARTING_TIMESTAMP)) > 20:
+                    ENDING_TIMESTAMP = str(int(STARTING_TIMESTAMP)+5)
+
                 # Do a temporary save, will delete later.
                 vf.save()
 
